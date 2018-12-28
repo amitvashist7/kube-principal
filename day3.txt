@@ -1,0 +1,418 @@
+    1  mkdir  my_project
+    2  cd my_project/
+    3  git clone https://github.com/amitvashist7/kubernetes-project.git
+    4  ls
+    5  cd ..
+    6  ls
+    7  cd my_project/
+    8  ls
+    9  mkdir kube-principal
+   10  ls
+   11  cd kube-principal/
+   12  ls
+   13  echo "# kube-principal" >> README.md
+   14  git init
+   15  git add . 
+   16  git commit -m "Initial Commit"
+   17  git remote add origin https://github.com/amitvashist7/kube-principal.git
+   18  ls
+   19  git push -u origin master
+   20  ls
+   21  cp -rf ../kubernetes-project/setup .
+   22  ls
+   23  cd setup/
+   24  ls
+   25  rm -rf Vagrantfile etcd.sh snapshot.db history_day*
+   26  ls
+   27  cd ..
+   28  git add .
+   29  git commit -m "Kubernetes Setup Dir."
+   30  git push -u origin master
+   31  ls
+   32  cp -rf ../kubernetes-project/first-app .
+   33  cp -rf ../kubernetes-project/deployment .
+   34  cp -rf ../kubernetes-project/replication-controller/ .
+   35  ls
+   36  git add .
+   37  git commit -m "Kuberneter Demos"
+   38  git push -u origin master
+   39  cd 
+   40  ls
+   41  git clone https://github.com/amitvashist7/kube-principal.git
+   42  ls
+   43  cd kube-principal/
+   44  ls
+   45  cd setup/
+   46  ls
+   47  vim install-kubernetes.sh 
+   48  cat install-node.sh 
+   49  ip addr 
+   50  vim 
+   51  vim install-kubernetes.sh 
+   52  ls
+   53  ./install-kubernetes.sh 
+   54  kubectl get nodes
+   55  cd
+   56  mkdir -p $HOME/.kube
+   57  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   58  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   59  kubectl get nodes
+   60  kubeadm token list 
+   61  kubectl get nodes 
+   62  kubectl cluster-info
+   63  kubectl cluster-info dump
+   64  kubectl cluster-info dump > dump
+   65  kubectl verions
+   66  kubectl versions
+   67  kubectl 
+   68  kubectl api-version
+   69  kubectl api-versions
+   70  kubectl proxy --port=80
+   71  kubectl proxy --port=80 &
+   72  curl localhost
+   73  curl localhost/api/
+   74  curl localhost/apis/
+   75  curl localhost/apis/v1beta1
+   76  curl localhost/apis/
+   77  curl localhost/apis/batch/v1
+   78  curl localhost/apis/nodes
+   79  curl localhost/apis/node
+   80  curl localhost/apis/
+   81  ls
+   82  cd kube-principal/
+   83  ls
+   84  cd first-app/
+   85  ls
+   86  cat helloworld.yml 
+   87  kubectl get nodes
+   88  kubectl get pods
+   89  kubectl get pod
+   90  kubectl create -f helloworld.yml 
+   91  kubectl get pods
+   92  kubectl get pods -o wide
+   93  curl 192.168.2.2   
+   94  ls
+   95  kubectl get pods
+   96  kubectl describe pods nodehelloworld   
+   97  kubectl get cluster
+   98  kubectl get cluster-info
+   99  kubectl cluster-info
+  100  ls
+  101  vim dump 
+  102  ls
+  103  grep -i clustername dump 
+  104  kubectl edit cluster
+  105  kubectl edit cluster ""
+  106  ls
+  107  cat .kube/config 
+  108  cd /etc/kubernetes/
+  109  ls
+  110  cat controller-manager.conf 
+  111  ls
+  112  cat admin.conf 
+  113  ls
+  114  cat kubelet.conf 
+  115  ls
+  116  cd manifests/
+  117  ls
+  118  vim kube-apiserver.yaml 
+  119  vim kube-scheduler.yaml 
+  120  vim kube-controller-manager.yaml 
+  121  ls
+  122  cd
+  123  ls
+  124  cd my_project/
+  125  ls
+  126  cd kubernetes-project/
+  127  ls
+  128  cd istio/
+  129  ls
+  130  ls -ltr 
+  131  cat helloworld.yaml 
+  132  ls
+  133  ls- ltr 
+  134  ll
+  135  cat README.md 
+  136  ls
+  137  cat helloworld-v2.yaml 
+  138  kubectl get pods 
+  139  kubectl get nodes
+  140  kubectl get pods 
+  141  ls
+  142  cd my_project/
+  143  ls
+  144  cd kubernetes-project/
+  145  ls
+  146  cd first-app/
+  147  ls
+  148  ls -ltr 
+  149  cat helloworld.yml 
+  150  cat helloworld-service.yml 
+  151  kubectl create -f helloworld-service.yml 
+  152  kubectl get service
+  153  vim helloworld-service.yml 
+  154  kubectl get pod -o wide 
+  155  curl 10.100.220.194   
+  156  curl 10.142.0.4:31586
+  157  kubectl delete svc helloworld-service
+  158  l
+  159  kubectl create -f helloworld-nodeport-service.yml 
+  160  kubectl get svc 
+  161  kubectl get pod -o wide 
+  162  kubectl delete svc nodehelloworld   
+  163  kubectl get pod -o wide 
+  164  kubectl delete pod nodehelloworld   
+  165  kubectl get pod -o wide 
+  166  kubectl delete pod nodehelloworld   
+  167  kubectl get pod -o wide 
+  168  kubectl delete pod nodehelloworld   
+  169  kubectl get nodes
+  170  kubectl get pod -o wide 
+  171  ls
+  172  kubectl create -f helloworld.yml 
+  173  kubectl create -f helloworld-nodeport-service.yml 
+  174  kubectl get pods 
+  175  kubectl get svc 
+  176  curl 10.96.30.150:31001
+  177  kubectl get pods
+  178  kubectl get pods -o wide
+  179  curl worker02:31001
+  180  kubectl get svc 
+  181  kubectl delete svc helloworld-service
+  182  kubectl get svc 
+  183  kubectl create -f helloworld-service.yml 
+  184  kubectl get pods 
+  185  kubectl get svc 
+  186  curl 10.100.167.99:80
+  187  kubectl edit svc helloworld-service
+  188  kubectl get svc 
+  189  kubectl get pods 
+  190  kubectl get pods -o wide 
+  191  curl 192.168.2.4 
+  192  curl 192.168.2.4:32693
+  193  kubectl get svc 
+  194  kubectl delete svc helloworld-service
+  195  kubectl get svc 
+  196  ls
+  197  cd kube-principal/
+  198  ls
+  199  cd first-app/
+  200  ls
+  201  kubectl get pods 
+  202  ls
+  203  kubectl get pods 
+  204  kubectl get pods -o wide 
+  205  kubectl delete pod nodehelloworld   
+  206  kubectl get pods -o wide 
+  207  cd ../
+  208  ls
+  209  cd replication-controller/
+  210  ls
+  211  cat helloworld-repl-controller.yml 
+  212  kubectl create -f helloworld-repl-controller.yml 
+  213  cd 
+  214  cd - 
+  215  kubectl get pods 
+  216  kubectl get pods -o wide 
+  217  kubectl delete pod helloworld-controller-2nqkj 
+  218  kubectl get pods -o wide 
+  219  kubectl delete pod helloworld-controller-blgv2 helloworld-controller-tzdwj
+  220  kubectl get pods -o wide 
+  221  kubectl get rc
+  222  vim helloworld-repl-controller.yml 
+  223  kubectl create -f helloworld-repl-controller.yml 
+  224  kubectl apply -f helloworld-repl-controller.yml 
+  225  kubectl get rc
+  226  kubectl get pods 
+  227  kubectl get rc
+  228  kubectl edit rc helloworld-controller
+  229  kubectl get pods 
+  230  kubectl scale --replicas=1 rc helloworld-controller
+  231  kubectl get pods 
+  232  kubectl scale --replica=4 rc helloworld-controller
+  233  kubectl scale --replicas=4 rc helloworld-controller
+  234  kubectl get pods 
+  235  history 
+  236  ls
+  237  cd - 
+  238  cd kube-principal/
+  239  ls
+  240  cd deployment/
+  241  ls
+  242  kubectl get rc
+  243  kubectl delete rc helloworld-controller
+  244  kubectl get pods 
+  245  kubectl get rc 
+  246  ls
+  247  cat helloworld.yml 
+  248  kubectl create -f helloworld.yml 
+  249  kubectl get rs
+  250  kubectl get deployment
+  251  kubectl get pods --show-labels
+  252  kubectl get deployments
+  253  kubectl get svc 
+  254  kubectl expose deployment helloworld-deployment --type=NodePort
+  255  kubectl get svc 
+  256  kubectl get pods -o wide 
+  257  curl worker01:32590
+  258  curl worker02:32590
+  259  kubectl get pods -o wide 
+  260  curl worker02:32590
+  261  curl 10.142.0.7:32590
+  262  kubectl get pods 
+  263  kubectl get nodes 
+  264  curl 10.142.0.7:32590
+  265  kubectl get pods 
+  266  kubectl get pods -o wide 
+  267  kubectl delete pod helloworld-deployment-694b4c48b5-xtf8t
+  268  kubectl get pods -o wide 
+  269  curl 10.142.0.7:32590
+  270  kubectl get pods 
+  271  kubectl get svc 
+  272  curl worker02:32590
+  273  kubectl get deployments 
+  274  kubectl describe deployments helloworld-deployment
+  275  kubectl get deployments 
+  276  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:2
+  277  kubectl rollout status  deployment helloworld-deployment
+  278  kubectl get pods -o wide 
+  279  kubectl get pods 
+  280  kubectl get svc 
+  281  kubectl get deployment
+  282  kubectl edit deployment helloworld-deployment
+  283  kubectl get deployment
+  284  kubectl get pods -o wide 
+  285  kubectl rollout status  deployment helloworld-deployment
+  286  kubectl set image deployment helloworld-deployment k8s-demo=amitvashist7/k8s-tiny-web:3
+  287  kubectl rollout status  deployment helloworld-deployment
+  288  history 
+  289  kubectl rollout undo  deployment helloworld-deployment
+  290  kubectl rollout status  deployment helloworld-deployment
+  291  kubectl rollout history  deployment helloworld-deployment
+  292  kubectl rollout undo  deployment helloworld-deployment
+  293  kubectl rollout status  deployment helloworld-deployment
+  294  kubectl rollout history  deployment helloworld-deployment
+  295  kubectl rollout history  deployment helloworld-deployment --revison=1
+  296  kubectl rollout history  deployment helloworld-deployment --revision=1
+  297  kubectl rollout history  deployment helloworld-deployment --revision=2
+  298  kubectl rollout history  deployment helloworld-deployment --revision=4
+  299  kubectl rollout history  deployment helloworld-deployment --revision=5
+  300  kubectl rollout history  deployment helloworld-deployment
+  301  kubectl rollout undo  deployment helloworld-deployment --to-revision=1
+  302  kubectl rollout history  deployment helloworld-deployment
+  303  kubectl rollout status deployment helloworld-deployment
+  304  kubectl get svc 
+  305  kubectl describe svc helloworld-deployment
+  306  kubectl get svc 
+  307  kubectl delete svc helloworld-deployment
+  308  ls
+  309  cd ..
+  310  ls
+  311  cd first-app/
+  312  ls
+  313  cat helloworld-nodeport-service.yml 
+  314  kubectl create -f helloworld-nodeport-service.yml 
+  315  kubectl get svc 
+  316  kubectl describe svc helloworld-service
+  317  kubectl get pods --show-labels
+  318  ls
+  319  cd ../deployment/
+  320  ls
+  321  kubectl get pods 
+  322  kubectl get pods --show-labels
+  323  kubectl describe svc helloworld-service
+  324  l
+  325  ls
+  326  cd ..
+  327  ls
+  328  cp -rf first-app/helloworld-nodeport-service.yml . 
+  329  vim helloworld-nodeport-service.yml 
+  330  kubectl get deployments
+  331  kubectl expose deployment helloworld-deployment --type=NodePort
+  332  kubectl get svc 
+  333  kubectl edit svc helloworld-deployment
+  334  ls
+  335  vim helloworld-nodeport-service.yml 
+  336  kubectl get svc 
+  337  kubectl delete svc helloworld-deployment
+  338  kubectl apply -f helloworld-nodeport-service.yml 
+  339  kubectl get svc 
+  340  kubectl describe svc helloworld-service
+  341  ls
+  342  cd first-app/
+  343  ls
+  344  kubectl create -f helloworld.yml 
+  345  kubectl get svc 
+  346  kubectl delete svc helloworld-service
+  347  kubectl create -f helloworld-nodeport-service.yml 
+  348  kubectl get svc 
+  349  kubectl describe svc helloworld-service
+  350  ls
+  351  cat helloworld.yml 
+  352  cat helloworld-nodeport-service.yml 
+  353  kubectl describe svc helloworld-service
+  354  kubectl get pods -o wide 
+  355  ls
+  356  cd ..
+  357  ls
+  358  cd ..
+  359  ls
+  360  cd my_project/kube-principal/
+  361  ls
+  362  cd ..
+  363  ls
+  364  cd kubernetes-project/
+  365  ls
+  366  cd ingress/
+  367  ls
+  368  cat echoservice.yml 
+  369  cat helloworld-v1.yml 
+  370  ls
+  371  cat nginx-ingress-controller.yml 
+  372  ls
+  373  cat ingress.yml 
+  374  ls
+  375  cd ..
+  376  ls
+  377  cp -rf  dashboard ../kube-principal/
+  378  cd ../kube-principal/
+  379  ls
+  380  git add . 
+  381  git commit -m "DashBoard"
+  382  git push 
+  383  ls
+  384  cd dashboard/
+  385  ls
+  386  cd
+  387  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+  388  cd - 
+  389  ls
+  390  cat README.md 
+  391  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
+  392  kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
+  393  kubectl create -f sample-user.yaml
+  394  ls
+  395  cat README.md 
+  396  ip addr 
+  397  kubectl proxy --address='10.142.0.5' --port=8080 --accept-hosts='.' --accept-paths='.' &
+  398  ps -ef | grep -i proxy
+  399  kill -9 14663  
+  400  kubectl proxy --address='10.142.0.5' --port=30000 --accept-hosts='.' --accept-paths='.' &
+  401  ls
+  402  kill -9 14663  
+  403  ps -ef | grep -i proxy
+  404  kill -9 15016  
+  405  kubectl proxy --address='10.142.0.5' --port=80 --accept-hosts='.' --accept-paths='.' &
+  406  kubectl get pods --all-namespaces
+  407  ls
+  408  ps -ef | grep -i proxy
+  409  kill -9 16083  
+  410  kubectl proxy --address='10.142.0.5' --port=8443 --accept-hosts='.' --accept-paths='.' &
+  411  kubectl -n kube-system get service kubernetes-dashboard
+  412  kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
+  413  cd 
+  414  history 
+  415  ls
+  416  cd my_project/kube-principal/
+  417  ls
+  418  history > day3.txt
